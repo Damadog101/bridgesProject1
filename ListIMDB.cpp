@@ -14,7 +14,7 @@ using namespace bridges;
 int main() {
 
 	//create the Bridges object, set credentials
-	Bridges bridges(1, "Nevan-sprinxt", "1619632629701");
+	Bridges bridges(1, " Bridges Username ", " Bridges API ");
 
 	bridges.setTitle("Linked List IMDB Demo");
 	bridges.setDescription("Shows a linked list of movies Kevin Bacon is a part of");
