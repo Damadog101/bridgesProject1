@@ -14,7 +14,7 @@ using namespace bridges;
 int main() {
 
 	//create the Bridges object, set credentials
-	Bridges bridges(1, "INPUT BRIDGES USERNAME HERE", "INPUT BRIDGES API KEY HERE");
+	Bridges bridges(1, "Nevan-sprinxt", "1619632629701");
 
 	bridges.setTitle("Linked List IMDB Demo");
 	bridges.setDescription("Shows a linked list of movies Kevin Bacon is a part of");
@@ -64,7 +64,18 @@ int main() {
 	//	I would recomend changing the color based on the rating, but I leave that up to you. Let me know if you need any help understanding any of the code
 	//	or with writing this loop!
 
+	// Nevan's QUESTION: Should we change something like shape of the node based on Movie Genre?
 
+	for (SLelement<ActorMovieIMDB>* currNode = head; currNode; currNode = currNode->getNext()) { // For loop starts at head and loops through every node
+		double ratingScore = currNode->getValue().getMovieRating(); // Make a placeholder for IMDB rating of the current Node
+
+		// If statements change the color based on rating. 
+		if (ratingScore <= 2.5) currNode->setColor("lime");
+		else if (ratingScore > 2.5 && ratingScore <= 5) currNode->setColor("violet");
+		else if (ratingScore > 5 && ratingScore <= 7.5) currNode->setColor("darkorange");
+		else if (ratingScore > 7.5 && ratingScore <= 10) currNode->setColor("cyan");
+	}
+		
 
 
 	// tell Bridges what data structure to visualize
