@@ -68,12 +68,28 @@ int main() {
 
 	for (SLelement<ActorMovieIMDB>* currNode = head; currNode; currNode = currNode->getNext()) { // For loop starts at head and loops through every node
 		double ratingScore = currNode->getValue().getMovieRating(); // Make a placeholder for IMDB rating of the current Node
+		vector<string> genre = currNode->getValue().getGenres(); // Make a placeholder for a Movie's IMDB vector of genres
 
+		//Shape sh = WYE;
 		// If statements change the color based on rating. 
 		if (ratingScore <= 2.5) currNode->setColor("lime");
 		else if (ratingScore > 2.5 && ratingScore <= 5) currNode->setColor("violet");
 		else if (ratingScore > 5 && ratingScore <= 7.5) currNode->setColor("darkorange");
 		else if (ratingScore > 7.5 && ratingScore <= 10) currNode->setColor("cyan");
+		
+		// Change shape based on the number of genres the Movie has
+		size_t genreCount = genre.size();
+
+		if (genreCount <= 1) currNode->setShape(Shape::WYE); // Changed "else if" since the Shapes can't run without a rating, when we want to use Genre.
+		else if (genreCount <= 2) currNode->setShape(Shape::CROSS);
+		else if (genreCount <= 3) currNode->setShape(Shape::SQUARE);
+		else if (genreCount <= 4) currNode->setShape(Shape::TRIANGLE);
+		else if (genreCount <= 5) currNode->setShape(Shape::DIAMOND);
+		else if (genreCount <= 6) currNode->setShape(Shape::STAR);
+		else currNode->setShape(Shape::CIRCLE);
+		// Noticed that in increments of three, i.e. (genreCount <= 3) produced a majority of WYE shaped nodes.
+		// Changed to current increment of one, now shape of nodes are more varied.
+
 	}
 		
 
