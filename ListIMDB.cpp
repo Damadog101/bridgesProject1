@@ -14,10 +14,10 @@ using namespace bridges;
 int main() {
 
 	//create the Bridges object, set credentials
-	Bridges bridges(1, " Bridges Username ", " Bridges API ");
+	Bridges bridges(1, "Bridges Username", "Bridges API Key");
 
 	bridges.setTitle("Linked List IMDB Demo");
-	bridges.setDescription("Shows a linked list of movies Kevin Bacon is a part of");
+	bridges.setDescription("Shows a linked list of movies with one of their actors, and the movie's rating");
 
 
 	//Creates a pointer to a DataSource object on the heap, which allows Bridges to access outside data
